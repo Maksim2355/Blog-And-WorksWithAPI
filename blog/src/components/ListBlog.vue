@@ -1,7 +1,8 @@
 <template>
     <ul>
-        <Post> </Post>
-        <Post> </Post>
+        <Post
+        v-bind:REG="REG_FLAG"
+        />
     </ul>
 </template>
 
@@ -9,6 +10,7 @@
     import Post from "@/components/Post";
     export default {
         name: "ListBlog",
+        props: ['REG_FLAG'],
         components: {
             Post
         }

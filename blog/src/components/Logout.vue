@@ -1,7 +1,8 @@
 <template>
     <div>
-        <a>your Login</a>
-        <button>Logout</button>
+        <a>Твое litso</a>
+        <button>Иди, malchick</button>
+
     </div>
 </template>
 
@@ -19,13 +20,14 @@
     }
 
     a {
-        margin-right: 10px;
+        margin-right: 20px;
+        font-size: 18px;
     }
 
     button {
         display: inline-block;
         font-family: arial,sans-serif;
-        font-size: 11px;
+        font-size: 13px;
         font-weight: bold;
         color: rgb(68,68,68);
         text-decoration: none;
