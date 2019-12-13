@@ -1,48 +1,48 @@
 <template>
-    <header>
-        <form @submit.prevent="onSubmit">
-            <div class="Registrated">
-                <input type="text" placeholder="Введите имя пользователя" v-model="login" >
-                <input type="password" placeholder="Введите пароль" v-model="password">
-                <button type="submit" > Вход </button>
-
-                <button type="button">Регистрация</button>
+    <div class="flex">
+        <div class="b-popup">
+            <div class="b-popup-content">
+                <button>Привет droog</button>
+                <form>
+                    <h3>Введите логин</h3>
+                    <input type="text" placeholder="Введите ваш логин">
+                    <h3>Введите пароль</h3>
+                    <input type="password" placeholder="Ваш пароль">
+                </form>
             </div>
-        </form>
-    </header>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "HeadReg",
-        data(){
-            return {
-                login: '',
-                password: ''
-            }
-        },
-        methods: {
-            onSubmit(){
-                let data = require('d.json');
-               // let userData = JSON.parse(data);
-                // eslint-disable-next-line no-console
-                console.log(data)
-
-            }
-        }
-
+        name: "WindowReg"
     }
 </script>
 
 <style scoped>
 
-    .Registrated {
-        display: flex;
-        flex-direction: row;
-        margin-right: 10px;
-        justify-content: flex-end;
+    .b-popup{
+        width:100%;
+        min-height:100%;
+        background-color: rgba(0,0,0,0.5);
+        overflow:hidden;
+        position:fixed;
+        top:0px;
     }
-
+    .b-popup .b-popup-content{
+        margin:100px auto 0px auto;
+        width:400px;
+        height: 200px;
+        padding:10px;
+        background-color: #7BA7AB;
+        border-radius:3px;
+        box-shadow: 0px 0px 10px #000;
+    }
+    .b-popup-content {
+        display: flex;
+        flex-direction: column;
+    }
 
     input {
         width: 200px;

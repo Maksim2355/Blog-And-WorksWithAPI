@@ -1,7 +1,7 @@
 <template>
     <div>
-        <a>Твое litso</a>
-        <button>Иди, malchick</button>
+        <a>Твое emya</a>
+        <button>Иди,malchick</button>
 
     </div>
 </template>
