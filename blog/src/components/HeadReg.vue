@@ -1,15 +1,12 @@
 <template>
-    <header>
         <form @submit.prevent="onSubmit">
             <div class="Registrated">
                 <input type="text" placeholder="Введите имя пользователя" v-model="login" >
                 <input type="password" placeholder="Введите пароль" v-model="password">
-                <button type="submit" > Вход </button>
-
-                <button type="button">Регистрация</button>
+                <button type="submit"> Вход </button>
+                <button type="button" v-on:click="$emit('open-reg')">Регистрация</button>
             </div>
         </form>
-    </header>
 </template>
 
 <script>
@@ -18,25 +15,19 @@
         data(){
             return {
                 login: '',
-                password: ''
+                password: '',
+                Flag: true
             }
         },
         methods: {
             onSubmit(){
-                /*
-                let data = require('./data-user.json');
-                let user = JSON.parse(data);
-                // eslint-disable-next-line no-console
-                console.log(user)
-                */
-
+              this.$emit('login-to', this.Flag)
             }
         }
     }
 </script>
 
 <style scoped>
-
     .Registrated {
         display: flex;
         flex-direction: row;

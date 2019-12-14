@@ -9,6 +9,7 @@
         </li>
         <button type="submit"
                 v-if="REG"
+                v-on:click="$emit('edit-post')"
         >
             Редактировать</button>
     </div>

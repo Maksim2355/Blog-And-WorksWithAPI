@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Молочный бар Korova</h1>
+    <h1>Старое доброе ультранасилие</h1>
     <hr>
     <!-- Фрагмент для регистрации, по умолчанию он включен.
     При прохождении пользователем регистрации флаг заменяется
@@ -9,20 +9,26 @@
      есть ошибка с получением JSON-файла-->
     <HeadReg
             v-if="REG_FLAG === false"
-            v-on:loginTo="loginTo"
+            @login-to="loginTo"
+            @open-reg="openReg"
     />
-    <Logout v-else />
+    <Logout v-if="REG_FLAG === true"
+    @log-out="logOut"
+    />
     <hr>
     <!-- Всплывающее окно регистрации -->
     <WindowReg
             v-if="WinReg_FLAG"
+            @success-reg="successReg"
     />
     <!-- Всплывающее окно редактирования постов -->
     <WindowEdit
             v-if="EDIT_FLAG"
+            @close-edit="closeEdit"
     />
     <ListBlog
             v-bind:REG_FLAG="REG_FLAG"
+            @edit-post="editPost"
     />
   </div>
 </template>
@@ -34,19 +40,47 @@
   import ListBlog from "@/components/ListBlog";
   import WindowEdit from "@/components/WindowEdit";
   import WindowReg from "@/components/WindowReg";
+
   export default {
     name: 'app',
     data(){
       return {
-        REG_FLAG: false,
+        REG_FLAG: true,
         EDIT_FLAG: false,
         WinReg_FLAG: false
       }
     },
     methods: {
+      //Метод авторизации
       loginTo(){
 
+        this.REG_FLAG = true;
       },
+      //Метод открытия окна регистрации
+      openReg(){
+
+        this.WinReg_FLAG = true;
+      },
+      //Метод выхода
+      logOut(){
+
+        this.REG_FLAG = false;
+      },
+      //Метод для регистрации данных
+      successReg(){
+
+        this.WinReg_FLAG = false;
+      },
+      //Метод для редакитрования постов
+      editPost(){
+
+        this.EDIT_FLAG = true;
+      },
+      //Метод для окончания редактирования поста
+      closeEdit(){
+
+        this.EDIT_FLAG = false;
+      }
     },
     components: {
       HeadReg,
@@ -54,11 +88,18 @@
       Logout,
       WindowEdit,
       WindowReg,
+
     }
   }
 </script>
 
 <style>
+  .contFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button>Иди,malchick</button>
+        <button v-on:click="$emit('log-out')">Иди,malchick</button>
     </div>
 </template>
 

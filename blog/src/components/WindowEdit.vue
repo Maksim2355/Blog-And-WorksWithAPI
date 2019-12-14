@@ -2,7 +2,7 @@
     <div class="flex">
         <div class="b-popup">
             <div class="b-popup-content">
-                <button>Zakroi</button>
+                <button v-on:click="$emit('close-edit')">Zakroi</button>
                 <textarea>РЕДАЧИМ</textarea>
             </div>
         </div>

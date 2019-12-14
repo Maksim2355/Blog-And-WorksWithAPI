@@ -2,6 +2,7 @@
     <ul>
         <Post
                 v-bind:REG="REG_FLAG"
+                v-on:edit-post="editPost"
         />
     </ul>
 </template>
@@ -13,7 +14,12 @@
         props: ['REG_FLAG'],
         components: {
             Post
-        }
+        },
+        methods: {
+            editPost(){
+                this.$emit('edit-post')
+            }
+        },
     }
 </script>
 

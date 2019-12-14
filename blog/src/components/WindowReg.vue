@@ -1,9 +1,8 @@
 <template>
-    <div class="flex">
         <div class="b-popup">
             <div class="b-popup-content">
-                <button>Привет droog</button>
-                <form>
+                <form @submit.prevent="onSubmit">
+                    <button type="submit">Привет droog</button>
                     <h3>Введите логин</h3>
                     <input type="text" placeholder="Введите ваш логин">
                     <h3>Введите пароль</h3>
@@ -11,12 +10,17 @@
                 </form>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
     export default {
-        name: "WindowReg"
+        name: "WindowReg",
+        methods: {
+            onSubmit(){
+
+                this.$emit('success-reg')
+            }
+        }
     }
 </script>
 
@@ -29,6 +33,7 @@
         overflow:hidden;
         position:fixed;
         top:0px;
+
     }
     .b-popup .b-popup-content{
         margin:100px auto 0px auto;
