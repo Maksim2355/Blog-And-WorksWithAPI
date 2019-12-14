@@ -4,9 +4,9 @@
                 <form @submit.prevent="onSubmit">
                     <button type="submit">Привет droog</button>
                     <h3>Введите логин</h3>
-                    <input type="text" placeholder="Введите ваш логин">
+                    <input type="text" placeholder="Введите ваш логин" v-model="login">
                     <h3>Введите пароль</h3>
-                    <input type="password" placeholder="Ваш пароль">
+                    <input type="password" placeholder="Ваш пароль" v-model="password">
                 </form>
             </div>
         </div>
@@ -15,10 +15,22 @@
 <script>
     export default {
         name: "WindowReg",
+        data(){
+            return {
+                login: '',
+                password: ''
+            }
+        },
         methods: {
             onSubmit(){
+                /*При нажатии на кнопку данные сверяются с данными
+                из data-user и если такого логина нет, то данные добавляются
+                 */
 
-                this.$emit('success-reg')
+
+                this.$emit('success-reg');
+                this.password = '';
+                this.login = ''
             }
         }
     }

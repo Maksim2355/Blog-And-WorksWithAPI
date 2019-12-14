@@ -16,12 +16,25 @@
             return {
                 login: '',
                 password: '',
-                Flag: true
             }
         },
         methods: {
             onSubmit(){
-              this.$emit('login-to', this.Flag)
+
+                /*Мы получаем файл и преобразуем его в объект
+                После проводим сравнение с полем login и password. Если данные
+                подошли, то мы отправляем функцию на выполнение
+                 */
+                /*
+                let users = require('./data-user.json');
+                let dataUsers = JSON.parse(users);
+                // eslint-disable-next-line no-console
+                console.log(dataUsers);
+                */
+              //Отдаем функцию на выполнения, если логин и пароль подошел
+              this.$emit('login-to');
+              this.login = '';
+              this.password = '';
             }
         }
     }

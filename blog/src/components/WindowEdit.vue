@@ -1,17 +1,35 @@
 <template>
-    <div class="flex">
-        <div class="b-popup">
-            <div class="b-popup-content">
-                <button v-on:click="$emit('close-edit')">Zakroi</button>
-                <textarea>РЕДАЧИМ</textarea>
-            </div>
+    <div class="b-popup">
+        <div class="b-popup-content">
+            <form @submit.prevent="onSubmit">
+                <button type="submit">Zakroi</button>
+                <textarea v-model="textPost"> </textarea>
+            </form>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "WindowEdit"
+        name: "WindowEdit",
+        data(){
+            return{
+                textPost: ''
+            }
+        },
+        methods: {
+            onSubmit(){
+                /*
+                При нажатии на кнопку берется значение из поле
+                textarea и передается в файл. После окно закрывается
+                 */
+
+                // eslint-disable-next-line no-console
+                console.log(this.textPost);
+                this.$emit('close-edit');
+                this.textPost = '';
+            }
+        }
     }
 </script>
 
@@ -22,7 +40,7 @@
 
     textarea{
         width: 99.4%;
-        height: 85%;
+        height: 300%;
         font-family: 'Merriweather', serif;
     }
     .b-popup{
