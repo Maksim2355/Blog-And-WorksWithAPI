@@ -1,8 +1,6 @@
 <template>
     <div>
-        <a>Твое emya</a>
         <button>Иди,malchick</button>
-
     </div>
 </template>
 

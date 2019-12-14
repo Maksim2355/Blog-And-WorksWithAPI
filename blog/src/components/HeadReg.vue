@@ -23,14 +23,15 @@
         },
         methods: {
             onSubmit(){
-                let data = require('d.json');
-               // let userData = JSON.parse(data);
+                /*
+                let data = require('./data-user.json');
+                let user = JSON.parse(data);
                 // eslint-disable-next-line no-console
-                console.log(data)
+                console.log(user)
+                */
 
             }
         }
-
     }
 </script>
 
