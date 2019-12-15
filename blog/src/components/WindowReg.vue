@@ -26,11 +26,23 @@
                 /*При нажатии на кнопку данные сверяются с данными
                 из data-user и если такого логина нет, то данные добавляются
                  */
-
-
-                this.$emit('success-reg');
-                this.password = '';
-                this.login = ''
+                const users = require('@/data-user.json');
+                var bool = true;
+                for(let i = 0; i < users.numbUser; i++){
+                    if(this.login === users.dataUser[i].name){bool = false;}}
+                if(bool) {
+                    const user = {
+                        name: this.login,
+                        password: this.password
+                    };
+                    users.dataUser.push(user);
+                    users.numbUser++;
+                    // eslint-disable-next-line no-console
+                    console.log(users);
+                    this.$emit('success-reg');
+                    this.password = '';
+                    this.login = ''
+                }
             }
         }
     }

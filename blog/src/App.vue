@@ -40,7 +40,6 @@
   import ListBlog from "@/components/ListBlog";
   import WindowEdit from "@/components/WindowEdit";
   import WindowReg from "@/components/WindowReg";
-
   export default {
     name: 'app',
     data(){
@@ -53,32 +52,26 @@
     methods: {
       //Метод авторизации
       loginTo(){
-
         this.REG_FLAG = true;
       },
       //Метод открытия окна регистрации
       openReg(){
-
         this.WinReg_FLAG = true;
       },
       //Метод выхода
       logOut(){
-
         this.REG_FLAG = false;
       },
       //Метод для регистрации данных
       successReg(){
-
         this.WinReg_FLAG = false;
       },
       //Метод для редакитрования постов
       editPost(){
-
         this.EDIT_FLAG = true;
       },
       //Метод для окончания редактирования поста
       closeEdit(){
-
         this.EDIT_FLAG = false;
       }
     },
@@ -87,19 +80,12 @@
       ListBlog,
       Logout,
       WindowEdit,
-      WindowReg,
-
+      WindowReg
     }
   }
 </script>
 
 <style>
-  .contFlex {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

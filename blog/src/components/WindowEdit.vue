@@ -3,7 +3,8 @@
         <div class="b-popup-content">
             <form @submit.prevent="onSubmit">
                 <button type="submit">Zakroi</button>
-                <textarea v-model="textPost"> </textarea>
+                <br>
+                <textarea v-model="text"> </textarea>
             </form>
         </div>
     </div>
@@ -14,7 +15,8 @@
         name: "WindowEdit",
         data(){
             return{
-                textPost: ''
+                textId: require('@/data-post.json').idNow,
+                text: require('@/data-post.json').posts[require('@/data-post.json').idNow].content
             }
         },
         methods: {
@@ -23,13 +25,13 @@
                 При нажатии на кнопку берется значение из поле
                 textarea и передается в файл. После окно закрывается
                  */
-
+                const post = require('@/data-post.json');
+                post.posts[this.textId].content = this.text;
                 // eslint-disable-next-line no-console
-                console.log(this.textPost);
+                console.log(this.text);
                 this.$emit('close-edit');
-                this.textPost = '';
             }
-        }
+        },
     }
 </script>
 
@@ -40,7 +42,7 @@
 
     textarea{
         width: 99.4%;
-        height: 300%;
+        height: 240%;
         font-family: 'Merriweather', serif;
     }
     .b-popup{
