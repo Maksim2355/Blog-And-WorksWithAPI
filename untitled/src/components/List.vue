@@ -7,6 +7,7 @@
 </template>
 
 <script>
+    //
     import ItemNews from "@/components/ItemNews"
     export default {
         name: "List",

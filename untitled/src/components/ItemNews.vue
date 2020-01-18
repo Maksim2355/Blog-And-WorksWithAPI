@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    //s
+    //
     export default {
         name: "ItemNews",
         props: {
