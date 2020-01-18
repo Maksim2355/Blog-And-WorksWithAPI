@@ -34,7 +34,6 @@
 </template>
 
 <script>
-
   import Logout from "@/components/Logout";
   import HeadReg from "@/components/HeadReg";
   import ListBlog from "@/components/ListBlog";
@@ -44,7 +43,7 @@
     name: 'app',
     data(){
       return {
-        REG_FLAG: true,
+        REG_FLAG: false,
         EDIT_FLAG: false,
         WinReg_FLAG: false
       }
