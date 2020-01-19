@@ -30,7 +30,7 @@
                 var bool = true;
                 for(let i = 0; i < users.numbUser; i++){
                     if(this.login === users.dataUser[i].name){bool = false;}}
-                if(bool) {
+                if(bool && this.login.trim() !== '' && this.password.trim() !== '') {
                     const user = {
                         name: this.login,
                         password: this.password
@@ -40,9 +40,12 @@
                     // eslint-disable-next-line no-console
                     console.log(users);
                     this.$emit('success-reg');
+                    alert("Успешная регистрацияя");
                     this.password = '';
                     this.login = ''
                 }
+                this.$emit('success-reg');
+                alert("Вы не зарегестрированы")
             }
         }
     }
